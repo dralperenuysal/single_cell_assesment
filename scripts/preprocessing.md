@@ -172,8 +172,9 @@ plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
 plot1 + plot2
 ```
 
-![](preprocessing_files/figure-gfm/unnamed-chunk-7-1.png)<!-- --> The
-`seurat.obj` was saved to the project directory for other steps.
+![](preprocessing_files/figure-gfm/unnamed-chunk-7-1.png)<!-- --> 
+
+The `seurat.obj` was saved to the project directory for other steps.
 
 ``` r
 # save the data for further analysis
