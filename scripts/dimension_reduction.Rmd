@@ -1,0 +1,110 @@
+---
+output:
+  github_document: default
+  html_document: default
+---
+# Single-cell Analysis Assesment. Alperen Uysal, MD, PhDc. Ege University, Izmir, Turkey.
+
+## 2. Dimensionality Reduction and Clustering:
+
+With the Seurat object prepared, proceed to perform dimensionality reduction using Principal Component Analysis (PCA) to
+capture the primary sources of variation in the dataset. Following PCA, apply Uniform Manifold Approximation and Projection
+(UMAP) to visualize the data in a two-dimensional space, facilitating the identification of distinct cell populations.
+Subsequently, conduct clustering to group cells with similar expression profiles, which will aid in the annotation of cell types.
+
+# Workflow:
+
+```{r}
+seurat.obj <- LoadSeuratRds("../output/preprocessed.rds")
+```
+
+The code scales the data using ScaleData, a necessary step for PCA and UMAP to remove the influence of varying gene expression magnitudes. Scaling centers gene expression to have a mean of 0 and standard deviation of 1.
+
+```{r, echo=T, eval=T}
+# PCA analysis
+# scale the data for PCA and UMAP purposes
+all.genes <- rownames(seurat.obj)
+seurat.obj <- ScaleData(seurat.obj, features = all.genes)
+```
+
+This code runs PCA on the Seurat object using the variable features identified earlier. PCA reduces the dimensionality of the data and identifies principal components that capture most of the variance.
+
+```{r, echo= T, eval=T}
+seurat.obj <- RunPCA(seurat.obj, 
+                     features = VariableFeatures(
+                       object = seurat.obj)
+                     )
+```
+
+Visualize PCA Results
+The code visualizes PCA results using a series of plots, including:
+
+ - VizDimLoadings: Shows the contribution of genes to each principal component.
+ - DimPlot: Plots cells in the space of the first two principal components.
+ - DimHeatmap: Displays a heatmap of top genes across PCs.
+ - ElbowPlot: Helps determine the optimal number of PCs to use based on variance explained.
+
+```{r, echo=T, eval=T}
+VizDimLoadings(object = seurat.obj)
+DimPlot(seurat.obj, reduction = "pca")
+DimHeatmap(seurat.obj)
+ElbowPlot(seurat.obj)
+
+```
+
+
+The code finds cell neighbors based on the PCA dimensions, clusters the cells into groups, and visualizes the results in a UMAP embedding.
+
+```{r, echo=T, eval=T}
+seurat.obj <- FindNeighbors(seurat.obj, dims = 1:19)
+seurat.obj <- FindClusters(seurat.obj, resolution = 0.5)
+seurat.obj <- RunUMAP(seurat.obj, dims = 1:19)
+DimPlot(seurat.obj, reduction = "umap", label = T)
+```
+
+
+The code saves the Seurat object as an RDS file, allowing you to load it later for further analysis without reprocessing the data.
+
+
+
+```{r}
+# save the seurat object as h5seurat
+SaveH5Seurat(seurat.obj, filename = "../output/assesment_singlecell.h5Seurat", overwrite = TRUE)
+
+# .h5Seurat dosyasını .h5ad (AnnData) formatına dönüştür
+Convert("../output/assesment_singlecell.h5Seurat", dest = "h5ad", overwrite = TRUE)
+
+```
+
+## Cell Annotation
+
+```{python}
+import pandas as pd
+```
+
+
+
+The code identifies marker genes for each cluster using the FindAllMarkers function. It filters the markers to include only positive markers with a log fold-change above a threshold.
+
+```{r, echo=T, eval=T}
+# find markers for every cluster compared to all remaining cells, report only the positive
+# ones
+all.markers <- FindAllMarkers(seurat.obj, only.pos = TRUE, logfc.threshold = 1, )
+```
+
+```{r, echo=T, eval=T}
+all.markers %>%
+  group_by(cluster) %>%
+  dplyr::filter(avg_log2FC > 4 & p_val_adj < 0.05)
+```
+
+
+```{r, echo=T, eval=T}
+marker_list <- list()
+idents <- unique(seurat.obj@meta.data$seurat_clusters) # find all the ident numbers and go along
+for (i in idents) {
+  name <- paste0("cluster", i)
+  marker_list[[name]] <- FindMarkers(seurat.obj, 
+                                     ident.1 = i, logfc.threshold = 4, test.use = "roc", only.pos = TRUE, )
+}
+```

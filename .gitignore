@@ -1,0 +1,7 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+resource/
+single_cell_assesment.Rproj
+output/preprocessed.rds
