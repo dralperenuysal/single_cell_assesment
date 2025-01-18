@@ -6,6 +6,7 @@ T-cell exhaustion in ovarian cancer", was analyzed in this assesment.
 
 ## INDEX
   - [output](output/) :Storing the output files and plots.
-    - [Click to see Proprocesing Task Notebook](scripts/preprocessed.md)
+    - [Click to see Preprocesing Task Notebook](scripts/preprocessed.md)
+    - [Click to see Dimensionality Reduction Task Notebook](scripts/dimension_reduction.md)
   - [scripts](scripts/) :Storing the codes and notebooks.
 

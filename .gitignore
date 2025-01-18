@@ -5,3 +5,9 @@
 resource/
 single_cell_assesment.Rproj
 output/preprocessed.rds
+/scripts/annotation.html
+/scripts/annotation.Rmd
+/scripts/dimension_reduction.Rmd
+/scripts/preprocessing.R
+/scripts/preprocessing.Rmd
+/scripts/trajectory.Rmd
