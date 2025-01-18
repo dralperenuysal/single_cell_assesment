@@ -11,3 +11,4 @@ output/preprocessed.rds
 /scripts/preprocessing.R
 /scripts/preprocessing.Rmd
 /scripts/trajectory.Rmd
+.idea
