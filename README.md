@@ -62,7 +62,7 @@ https://github.com/tidyverse/dplyr, https://dplyr.tidyverse.org.
 
 **GEOquery:** Davis S, Meltzer P (2007). “GEOquery: a bridge between the Gene
 Expression Omnibus (GEO) and BioConductor.” Bioinformatics, 14, 1846–1847.
-doi:10.1093/bioinformatics/btm254.
+https://doi:10.1093/bioinformatics/btm254.
 
 **ggplot2:** Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis.
 Springer-Verlag New York. ISBN 978-3-319-24277-4, https://ggplot2.tidyverse.org.
@@ -81,4 +81,4 @@ https://doi.org/10.1038/s41587-023-01767-y.
 **SingleR:** Aran D, Looney AP, Liu L, Wu E, Fong V, Hsu A, Chak S, Naikawadi RP,
 Wolters PJ, Abate AR, Butte AJ, Bhattacharya M (2019). “Reference-based analysis
 of lung single-cell sequencing reveals a transitional profibrotic macrophage.”
-Nat. Immunol., 20, 163-172. doi:10.1038/s41590-018-0276-y.
+Nat. Immunol., 20, 163-172. https://doi:10.1038/s41590-018-0276-y.
