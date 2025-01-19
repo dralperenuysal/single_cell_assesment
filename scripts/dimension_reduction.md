@@ -279,32 +279,4 @@ SaveH5Seurat(seurat.obj, filename = "../output/reducted.h5Seurat", overwrite = T
 
     ## No JackStraw data for umap
 
-``` r
-# convert h5seurat to h5ad
-Convert("../output/reducted.h5Seurat", dest = "h5ad", overwrite = TRUE)
-```
-
-    ## Validating h5Seurat file
-
-    ## Adding scale.data from RNA as X
-
-    ## Transfering meta.features to var
-
-    ## Adding data from RNA as raw
-
-    ## Transfering meta.features to raw/var
-
-    ## Transfering meta.data to obs
-
-    ## Adding dimensional reduction information for pca
-
-    ## Adding feature loadings for pca
-
-    ## Adding dimensional reduction information for umap
-
-    ## Adding RNA_snn as neighbors
-
-The Seurat object was saved as `h5ad` file in order to annotate the
-cells in python environment using `celltypist` package. Although, Seurat
-may be used to annotate the cells, I used python to show a
-multi-environmental concept in the assessment.
+The `seurat.obj` is saved to use in the further steps. 
