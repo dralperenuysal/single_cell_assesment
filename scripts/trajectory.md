@@ -315,3 +315,21 @@ plot_cells(cds,
 ```
 
 ![](trajectory_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+
+``` r
+# save the produced data
+saveRDS(cds, file = "../output/trajectory_cds.rds")
+saveRDS(seurat.obj.filtered, file = "../output/trajectory_seurat_filt.rds")
+```
+
+In this analysis, I explored how cells progress through developmental pathways
+by performing trajectory inference and pseudotime analysis using `Monocle3`.
+I focused on specific cell types, including "Tissue_stem_cells," to reconstruct
+the differentiation processes. First, the dimensionality of the data was reduced
+using PCA and UMAP, and then identified clusters of similar cells with Louvain
+clustering. From there, I built a trajectory graph to show how the clusters are
+connected and mapped the progression of cells over time. By designating
+"Tissue_stem_cells" as the starting point, it is possible to calculate pseudotime
+values, providing a timeline of cellular development.
+
+

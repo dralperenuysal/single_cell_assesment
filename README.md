@@ -54,6 +54,11 @@ DOI: https://doi.org/10.1016/j.ccell.2024.11.005
 
 ## Packages used in this project
 
+***celldex:** Aran D, Looney AP, Liu L, Wu E, Fong V, Hsu A, Chak S, Naikawadi
+RP, Wolters PJ, Abate AR, Butte AJ, Bhattacharya M (2019). “Reference-based
+analysis of lung single-cell sequencing reveals a transitional profibrotic
+macrophage.” Nat. Immunol., 20, 163-172. https://doi:10.1038/s41590-018-0276-y.
+
 **dplyr:** Wickham H, François R, Henry L, Müller K, Vaughan D (2023). dplyr:
 A Grammar of Data Manipulation. R package version 1.1.4, 
 https://github.com/tidyverse/dplyr, https://dplyr.tidyverse.org.
