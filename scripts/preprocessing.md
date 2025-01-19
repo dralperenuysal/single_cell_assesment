@@ -157,22 +157,33 @@ highlighting highly variable genes. `LabelPoints` adds labels to the top
 10 genes on the plot, with `repel = TRUE` ensuring labels do not
 overlap. Finally, the two plots are combined for visualization.
 
+In the analysis, the top 10 most highly variable genes were identified
+using the VariableFeatures function in Seurat. These genes are IGLC3,
+IGLC2, IGHA1, IGLL5, IGHG2, IGHM, JCHAIN, IGHG4, IGHGP, and IGKC. They
+exhibit significant variance across the dataset and are critical for
+downstream analysis, such as clustering and trajectory inference. The
+VariableFeaturePlot highlights these genes, with labeled points for the
+top 10, showcasing their standardized variance versus average
+expression. These highly variable genes are likely to capture
+biologically relevant differences in the dataset.
+
 ``` r
 # Identify the 10 most highly variable genes
 top10 <- head(VariableFeatures(seurat.obj), 10)
 
 # plot variable features with and without labels
-plot1 <- VariableFeaturePlot(seurat.obj)
-plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
+VariableFeaturePlot(seurat.obj)
+```
+
+![](preprocessing_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+``` r
+LabelPoints(plot = VariableFeaturePlot(seurat.obj), points = top10, repel = TRUE)
 ```
 
     ## When using repel, set xnudge and ynudge to 0 for optimal results
 
-``` r
-plot1 + plot2
-```
-
-![](preprocessing_files/figure-gfm/unnamed-chunk-7-1.png)<!-- --> 
+![](preprocessing_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->
 
 The `seurat.obj` was saved to the project directory for other steps.
 

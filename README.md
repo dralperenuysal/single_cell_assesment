@@ -44,8 +44,6 @@ Study Design:
 Single-cell gene expression profiles were generated from tumor and ascites
 samples.
 Data includes chemo-naïve and IDS conditions for 22 patients.
-Raw data is available in the European Genome-phenome Archive (EGA) due to
-privacy concerns.
 
 Publication:
 
