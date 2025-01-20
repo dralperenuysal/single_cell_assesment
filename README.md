@@ -11,6 +11,7 @@ T-cell exhaustion in ovarian cancer", was analyzed in this assesment.
     - [Dimensionality Reduction Task Notebook](scripts/dimension_reduction.md)
     - [Cell Type Annotation Task Notebook](scripts/annotation.md)
     - [Trajectory Inference and Pseudotime Analysis](scripts/trajectory.md)
+    - [Kinetics Plot of Marker Genes](scripts/differential_marker.md)
 
 ## Overview
 
