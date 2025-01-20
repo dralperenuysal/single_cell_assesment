@@ -52,6 +52,8 @@ myeloid-driven spatially confined T cell exhaustion in ovarian cancer. Cancer
 Cell 2024 Dec 9;42(12):2045-2063.e10. PMID: 39658541
 DOI: https://doi.org/10.1016/j.ccell.2024.11.005
 
+![abstract](abstract.png)
+
 ## Packages used in this project
 
 ***celldex:** Aran D, Looney AP, Liu L, Wu E, Fong V, Hsu A, Chak S, Naikawadi
