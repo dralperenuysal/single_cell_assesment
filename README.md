@@ -5,7 +5,6 @@ A single-cell dataset, "Chemotherapy induces myeloid-driven spatial
 T-cell exhaustion in ovarian cancer", was analyzed in this assesment.
 
 ## INDEX
-  - [output](output/) :Storing the output files and plots.
   - [scripts](scripts/) :Directory, Storing the codes and notebooks.
     - [Preprocesing Task Notebook](scripts/preprocessed.md)
     - [Dimensionality Reduction Task Notebook](scripts/dimension_reduction.md)
